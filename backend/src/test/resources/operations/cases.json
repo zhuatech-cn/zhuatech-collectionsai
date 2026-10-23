@@ -1,0 +1,77 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "chargeablePrincipal": "#6000",
+      "proposedCharge": "#90"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "overdueDays": "10"
+    },
+    "expected": {
+      "chargeDays": "#0",
+      "proposedCharge": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "overdueDays": "200"
+    },
+    "expected": {
+      "proposedCharge": "#300",
+      "capped": "true"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "disputed": "7000.01"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "disputed": "0"
+    },
+    "expected": {
+      "decision": "PASS",
+      "chargeablePrincipal": "#7000"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "dailyRatePct": "0"
+    },
+    "expected": {
+      "proposedCharge": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "capPct": "0"
+    },
+    "expected": {
+      "proposedCharge": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "disputed": "7000"
+    },
+    "expected": {
+      "chargeablePrincipal": "#0",
+      "proposedCharge": "#0",
+      "decision": "REVIEW"
+    },
+    "error": false
+  }
+]

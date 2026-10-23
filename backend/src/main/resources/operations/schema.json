@@ -1,0 +1,115 @@
+{
+  "slug": "collectionsai",
+  "title": "争议扣除与逾期计费封顶",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "receivable",
+      "label": "应收原金额元",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "credits",
+      "label": "已确认贷项元",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "paid",
+      "label": "已收款元",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "disputed",
+      "label": "剩余中争议金额元",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "overdueDays",
+      "label": "逾期天数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "graceDays",
+      "label": "宽限天数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "dailyRatePct",
+      "label": "每日费率%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    },
+    {
+      "key": "capPct",
+      "label": "本金计费封顶%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    }
+  ],
+  "columns": [
+    {
+      "key": "chargeablePrincipal",
+      "label": "可计费本金元"
+    },
+    {
+      "key": "chargeDays",
+      "label": "扣宽限计费天"
+    },
+    {
+      "key": "proposedCharge",
+      "label": "封顶后情景费用元"
+    },
+    {
+      "key": "capped",
+      "label": "触达封顶"
+    }
+  ],
+  "description": "先扣除已确认贷项、已收款和互斥争议余额，再扣宽限天数按输入日费率计算封顶费用。不是法律允许收取利息的结论。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-24",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "receivable": "10000",
+        "credits": "1000",
+        "paid": "2000",
+        "disputed": "1000",
+        "overdueDays": "40",
+        "graceDays": "10",
+        "dailyRatePct": "0.05",
+        "capPct": "5"
+      }
+    ]
+  }
+}
