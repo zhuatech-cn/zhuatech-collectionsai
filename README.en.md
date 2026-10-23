@@ -1,5 +1,9 @@
 [简体中文](README.md) | **English**
 
+## Functional update: Receivable aging and disputed balances
+
+Computes outstanding balances and calendar-day aging buckets, with disputed balances reported separately rather than counted twice. Signed-in users can edit inputs and export real computed results. See [API, examples and limitations](docs/AI_OPERATIONS_UPGRADE_20261023.md). No external model calls or automatic business changes; existing licensing and contacts remain unchanged.
+
 # ZhuaTech Collectionsai
 
 > A source-available enterprise project by [ZhuaTech](https://www.zhuatech.cn/) for enterprise finance, planning, settlement, and risk control.
